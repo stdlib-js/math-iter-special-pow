@@ -52,7 +52,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import iterPow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-iter-special-pow@deno/mod.js';
+import iterPow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-iter-special-pow@v0.2.2-deno/mod.js';
 ```
 
 #### iterPow( base, exponent )
@@ -133,7 +133,7 @@ var bool = it.next().done;
 
 ```javascript
 import uniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-iter-uniform@deno/mod.js';
-import iterPow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-iter-special-pow@deno/mod.js';
+import iterPow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-iter-special-pow@v0.2.2-deno/mod.js';
 
 // Create seeded iterators for generating pseudorandom numbers:
 var x = uniform( 0.0, 2.0, {
