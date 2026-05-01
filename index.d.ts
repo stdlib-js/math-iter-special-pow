@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2020 The Stdlib Authors.
@@ -16,15 +16,14 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
 
-var iterMap2 = require( '@stdlib/math-iter-tools-map2' );
-var pow = require( '@stdlib/math-base-special-pow' );
+import { Iterator as Iter, IterableIterator } from '@stdlib/types/iter';
 
-
-// MAIN //
+// Define a union type representing both iterable and non-iterable iterators:
+type Iterator = Iter | IterableIterator;
 
 /**
 * Returns an iterator which iteratively evaluates the exponential function.
@@ -36,19 +35,14 @@ var pow = require( '@stdlib/math-base-special-pow' );
 * -   The length of the returned iterator is equal to the length of the shortest provided iterator. In other words, the returned iterator ends once **one** of the provided iterators ends.
 * -   If an environment supports `Symbol.iterator` and all provided iterators are iterable, the returned iterator is iterable.
 *
-* @param {(Iterator|number)} base - input iterator
-* @param {(Iterator|number)} exponent - input iterator
-* @throws {TypeError} first argument must be either an iterator protocol-compliant object or a number
-* @throws {TypeError} second argument must be either an iterator protocol-compliant object or a number
-* @returns {Iterator} iterator
+* @param base - input iterator
+* @param exponent - input iterator
+* @returns iterator
 *
 * @example
 * var uniform = require( '@stdlib/random-iter-uniform' );
 *
-* var x = uniform( 0.0, 2.0 );
-* var y = uniform( -2.0, 2.0 );
-*
-* var iter = iterPow( x, y );
+* var iter = iterPow( uniform( 0.0, 2.0 ), uniform( -2.0, 2.0 ) );
 *
 * var r = iter.next().value;
 * // returns <number>
@@ -61,11 +55,9 @@ var pow = require( '@stdlib/math-base-special-pow' );
 *
 * // ...
 */
-function iterPow( base, exponent ) {
-	return iterMap2( base, exponent, pow );
-}
+declare function iterPow( base: Iterator | number, exponent: Iterator | number ): Iterator;
 
 
 // EXPORTS //
 
-module.exports = iterPow;
+export = iterPow;
